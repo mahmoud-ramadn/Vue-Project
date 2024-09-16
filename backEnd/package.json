@@ -17,7 +17,7 @@
   
   "scripts": {
   
-    "start":"json-server --watch src/api/jobsData.json --port 8000",
+    "start":"json-server --watch /api/jobsData.json --port 8000",
   "test": "echo \"Error: no test specified\" && exit 1"
   
   },
