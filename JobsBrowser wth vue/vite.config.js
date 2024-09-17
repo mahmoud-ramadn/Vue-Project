@@ -8,6 +8,13 @@ export default defineConfig({
   plugins: [vue(),],
   server: {
     port: 3000,
+    proxy: {
+      '/api': {
+        target: "https://vue-project-two-gamma.vercel.app/",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
   
   },
   resolve: {
