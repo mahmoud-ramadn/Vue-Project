@@ -1,10 +1,11 @@
+// JSON Server module
 const jsonServer = require("json-server");
 const server = jsonServer.create();
 const fs = require('fs');
 const path = require('path');
 const middlewares = jsonServer.defaults();
 // Make sure the db.json is only read-only and served from memory to avoid errors when deployed to vercel.
-const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'jobsData.json'), 'utf-8'));
+const data = JSON.parse(fs.readFileSync(path.join(__dirname,"jobsData.json"), 'utf-8'));
 const router = jsonServer.router(data);
 
 
