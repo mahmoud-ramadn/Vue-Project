@@ -10,6 +10,7 @@ defineProps({
   showButton: {
     type: Boolean,
     default: false,
+    re0quired:false
   },
 });
 
