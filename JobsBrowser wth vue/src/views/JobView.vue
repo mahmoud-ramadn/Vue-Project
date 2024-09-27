@@ -15,15 +15,18 @@ const jobId= route.params.id
 
 
 
+
 const state = reactive({
     job: {},
     isLoading:true
 })
 
+const port = import.meta.env.VITE_API_URL;
+
 
 onMounted(async () => {
     try {
-        const res = await axios.get(`/api/jobs/${jobId}`);
+        const res = await axios.get(`${port}/jobs/${jobId}`);
     
         state.job = res.data;
     } catch (error) {
@@ -38,7 +41,7 @@ const deleteJob = async () => {
         const confirm = window.confirm('Are you sure you want to delete this job?');
 
         if (confirm)
-            await axios.delete(`/api/jobs/${jobId}`)
+            await axios.delete(`${port}/jobs/${jobId}`)
     
 
             toast.success('Job Deleted Successfully')

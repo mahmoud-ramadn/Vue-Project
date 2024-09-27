@@ -39,6 +39,9 @@ const state = reactive({
 
 const toast = useToast();
 
+const port = import.meta.env.VITE_API_URL;
+
+
 const handleSubmit = async () => {
     const  updatedJob = {
         title: form.title,
@@ -56,7 +59,7 @@ const handleSubmit = async () => {
 try {
 
 
-    const response = await axios.put(`/api/jobs/${jobId}`, updatedJob);
+    const response = await axios.put(`${port}/jobs/${jobId}`, updatedJob);
     router.push(`/jobs/${response.data.id}`)
 
     toast.success('Job Added Successfully');
@@ -69,7 +72,7 @@ try {
 
 onMounted(async () => {
     try {
-        const response = await axios.get(`/api/jobs/${jobId}`);
+        const response = await axios.get(`${port}/jobs/${jobId}`);
         state.job = response.data;
        
         form.type = state.job.type;
