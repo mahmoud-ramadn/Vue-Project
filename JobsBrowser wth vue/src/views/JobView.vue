@@ -26,7 +26,7 @@ const port = import.meta.env.VITE_API_URL;
 
 onMounted(async () => {
     try {
-        const res = await axios.get(`${port}/jobs/${jobId}`);
+        const res = await axios.get(`https://vue-project-kka9.vercel.app/jobs/${jobId}`);
     
         state.job = res.data;
     } catch (error) {

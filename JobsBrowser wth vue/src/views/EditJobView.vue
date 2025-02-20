@@ -59,7 +59,7 @@ const handleSubmit = async () => {
 try {
 
 
-    const response = await axios.put(`${port}/jobs/${jobId}`, updatedJob);
+    const response = await axios.put(`https://vue-project-kka9.vercel.app/jobs/${jobId}`, updatedJob);
     router.push(`/jobs/${response.data.id}`)
 
     toast.success('Job Added Successfully');
